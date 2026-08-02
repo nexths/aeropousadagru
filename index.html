@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pousada | Seu lugar para descansar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #fff;
+      background: #252622;
+    }
+
+    /* =========================
+       FUNDO
+    ========================= */
+
+    .page {
+      min-height: 100vh;
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+
+      padding: 120px 20px 30px;
+
+      overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(20, 21, 18, .58),
+          rgba(20, 21, 18, .70)
+        ),
+        url("assets/background.jpeg");
+
+      background-size: cover;
+      background-position: center;
+
+      filter: blur(2px);
+      transform: scale(1.04);
+
+      z-index: -2;
+    }
+
+    .background::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: rgba(35, 36, 31, .25);
+    }
+
+
+    /* =========================
+       CONTEÚDO
+    ========================= */
+
+    .content {
+      width: 100%;
+      max-width: 460px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       LOGO / PERFIL
+    ========================= */
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      margin-bottom: 28px;
+    }
+
+.logo {
+  width: 110px;           /* Tamanho da bolinha maior */
+  height: 110px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;        /* Garante o formato 100% redondo */
+  position: relative;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* Mantém as proporções da imagem */
+  transform: scale(1.4);   /* Dá o zoom no avião para preencher a bolinha */
+}
+
+    .name {
+      font-family: "Playfair Display", serif;
+
+      font-size: 30px;
+      font-weight: 400;
+
+      line-height: 1.1;
+    }
+
+    .description {
+      margin-top: 8px;
+
+      font-size: 13px;
+
+      color: rgba(255,255,255,.78);
+
+      letter-spacing: .3px;
+    }
+
+
+    /* =========================
+       LINKS
+    ========================= */
+
+    .links {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 12px;
+    }
+
+    .link {
+      width: 100%;
+
+      min-height: 58px;
+
+      padding: 0 20px;
+
+      border-radius: 14px;
+
+      background: rgba(255,255,255,.93);
+
+      color: #34352f;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.12);
+
+      transition:
+        transform .25s ease,
+        background .25s ease;
+    }
+
+    .link:hover {
+      transform: translateY(-2px);
+
+      background: #fff;
+    }
+
+    .icon {
+      position: absolute;
+      left: 20px;
+
+      width: 24px;
+
+      font-size: 18px;
+
+      opacity: .75;
+    }
+
+
+    /* =========================
+       DESTAQUE WHATSAPP
+    ========================= */
+
+    .link.whatsapp {
+      background: #e8eee5;
+    }
+
+    .link.whatsapp:hover {
+      background: #f0f4ed;
+    }
+
+
+    /* =========================
+       FRASE
+    ========================= */
+
+    .phrase {
+      margin-top: 28px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 17px;
+
+      color: rgba(255,255,255,.88);
+
+      line-height: 1.4;
+    }
+
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    .social {
+      display: flex;
+      gap: 18px;
+
+      margin-top: 24px;
+    }
+
+    .social a {
+      width: 40px;
+      height: 40px;
+
+      border: 1px solid rgba(255,255,255,.35);
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+
+      font-size: 15px;
+
+      transition: .25s ease;
+    }
+
+    .social a:hover {
+      background: rgba(255,255,255,.15);
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       RODAPÉ
+    ========================= */
+
+    footer {
+      margin-top: 30px;
+
+      font-size: 10px;
+
+      color: rgba(255,255,255,.48);
+
+      letter-spacing: .5px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 480px) {
+
+      .page {
+        padding:
+          100px
+          16px
+          25px;
+      }
+
+      .logo {
+        width: 74px;
+        height: 74px;
+
+        font-size: 23px;
+      }
+
+      .name {
+        font-size: 27px;
+      }
+
+      .description {
+        font-size: 12px;
+      }
+
+      .link {
+        min-height: 56px;
+      }
+
+      .phrase {
+        font-size: 16px;
+      }
+
+    }
+
+    /* Estilo para as imagens dos ícones dentro dos botões */
+.icon-img {
+  position: absolute;
+  left: 20px;
+  width: 38px;
+  height: 35px;
+  object-fit: contain;
+}
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page">
+
+    <div class="background"></div>
+
+
+    <main class="content">
+
+
+      <!-- PERFIL -->
+
+      <section class="profile">
+
+        <div class="logo">
+            <img src="assets/logo.png" alt="AERO Pousada GRU">
+        </div>
+
+        <h1 class="name">
+          AERO Pousada GRU
+        </h1>
+
+        <p class="description">
+          Simples, tranquila e acolhedora.
+        </p>
+
+      </section>
+
+
+      <!-- LINKS -->
+
+      <!-- LINKS -->
+<nav class="links">
+
+  <a class="link whatsapp" href="https://wa.me/5511974167457" target="_blank">
+    <img src="assets/whatsapp-circle.png" class="icon-img" alt="WhatsApp">
+    Reservar pelo WhatsApp
+  </a>
+
+  <a class="link" href="https://maps.app.goo.gl/8gzygU26xjs3apNXA" target="_blank">
+    <img src="assets/location.png" class="icon-img" alt="Localização">
+    Como chegar
+  </a>
+
+  <a class="link" href="https://www.instagram.com/aero_pousada_gru/" target="_blank">
+    <img src="assets/instagram.png" class="icon-img" alt="Instagram">
+    Instagram
+  </a>
+
+  <a class="link" href="#acomodacoes">
+    <img src="assets/fotografia.png" class="icon-img" alt="Acomodações">
+    Conheça nossas acomodações
+  </a>
+
+</nav>
+
+      <!-- FRASE -->
+
+      <p class="phrase">
+        Um lugar acolhedor para<br>
+        você se sentir em casa.
+      </p>
+
+      <footer>
+        © 2026 AERO Pousada GRU
+      </footer>
+
+
+    </main>
+
+  </div>
+
+</body>
+</html>
