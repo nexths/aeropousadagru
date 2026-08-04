@@ -67,18 +67,32 @@
     /* ========================================================
        IMAGEM DE FUNDO
     ======================================================== */
-    .background {
-      position: fixed;
-      inset: 0;
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
 
-      background-image: url("assets/background.png");
+  /* 
+    Iniciamos o degradê transparente no topo (0%), 
+    começamos a escurecer já nos 15% da altura e 
+    fechamos na cor sólida nos 40% (bem antes da imagem cortar no mobile)
+  */
+  background-image: 
+    linear-gradient(to bottom, 
+      transparent 0%, 
+      rgba(15, 3, 25, 0.7) 15%, 
+      rgba(10, 2, 18, 0.95) 35%, 
+      #0a0212 50%
+    ),
+    url("assets/background.png");
 
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
 
-      z-index: -2;
-    }
+  /* Cor exata do tom mais escuro do fundo */
+  background-color: #0a0212;
+}
 
     .background::after {
       content: "";
