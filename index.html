@@ -23,14 +23,14 @@
     body {
       width: 100%;
       min-height: 100dvh;
-      overflow-x: hidden; /* Evita que a página role para os lados */
+      overflow-x: hidden;
       position: relative;
     }
 
     body {
       font-family: "DM Sans", sans-serif;
       color: #fff;
-      background: #10021a; /* Tom escuro roxo equivalente ao fundo */
+      background: #10021a;
     }
 
     /* =========================
@@ -48,7 +48,7 @@
 
       padding: 120px 20px 30px;
 
-      overflow: hidden; /* Trava de segurança extra no container */
+      overflow: hidden;
     }
 
     /* REGRA PARA QUANDO DEITAR O CELULAR (LANDSCAPE) */
@@ -59,7 +59,7 @@
       }
 
       .content {
-        max-width: 400px; /* Mantém o formato de cartão de celular centralizado */
+        max-width: 400px;
         margin: 0 auto;
       }
     }
@@ -67,38 +67,30 @@
     /* ========================================================
        IMAGEM DE FUNDO
     ======================================================== */
-.background {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
 
-  /* 
-    Iniciamos o degradê transparente no topo (0%), 
-    começamos a escurecer já nos 15% da altura e 
-    fechamos na cor sólida nos 40% (bem antes da imagem cortar no mobile)
-  */
-  background-image: 
-    linear-gradient(to bottom, 
-      transparent 0%, 
-      rgba(15, 3, 25, 0.7) 15%, 
-      rgba(10, 2, 18, 0.95) 35%, 
-      #0a0212 50%
-    ),
-    url("assets/background.png");
+      background-image: 
+        linear-gradient(to bottom, 
+          transparent 0%, 
+          rgba(15, 3, 25, 0.7) 15%, 
+          rgba(10, 2, 18, 0.95) 35%, 
+          #0a0212 50%
+        ),
+        url("assets/background.png");
 
-  background-size: 100% auto;
-  background-position: top center;
-  background-repeat: no-repeat;
-
-  /* Cor exata do tom mais escuro do fundo */
-  background-color: #0a0212;
-}
+      background-size: 100% auto;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-color: #0a0212;
+    }
 
     .background::after {
       content: "";
       position: absolute;
       inset: 0;
-
       background: rgba(16, 2, 26, 0.3);
     }
 
@@ -132,78 +124,70 @@
     }
 
     .logo {
-      width: 110px;           /* Tamanho da bolinha maior */
+      width: 110px;
       height: 110px;
       border-radius: 50%;
-      background: #000000;    /* FUNDO PRETO */
-      border: 2px solid rgba(255, 255, 255, 0.25); /* Borda brilhante */
+      background: #000000;
+      border: 2px solid rgba(255, 255, 255, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      overflow: hidden;        /* Garante o formato 100% redondo */
+      overflow: hidden;
       position: relative;
     }
 
     .logo img {
       width: 100%;
       height: 100%;
-      object-fit: contain;     /* Preserva a proporção da logo transparente */
-      transform: scale(1.1);   /* Margem interna suave */
+      object-fit: contain;
+      transform: scale(1.1);
     }
 
     .name {
       font-family: "Playfair Display", serif;
-
       font-size: 30px;
       font-weight: 400;
-
       line-height: 1.1;
     }
 
     .description {
       margin-top: 8px;
-
       font-size: 13px;
-
       color: rgba(255,255,255,.78);
-
       letter-spacing: .3px;
     }
 
 
     /* =========================
-       LINKS (TODOS OS BOTÕES IDÊNTICOS)
+       LINKS (BOTÕES)
     ========================= */
 
     .links {
       width: 100%;
-
       display: flex;
       flex-direction: column;
-
       gap: 12px;
     }
 
     .link {
       width: 100%;
-
       min-height: 58px;
 
+      /* Padding igual nas duas pontas garante alinhamento central */
       padding: 0 20px;
 
       border-radius: 14px;
-
-      /* Fundo roxo translúcido padronizado */
       background: rgba(59, 13, 78, 0.55);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
 
       border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      text-decoration: none;
 
-      color: #ffffff; /* Texto branco */
-
+      /* Centralização total do texto no container */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -212,9 +196,9 @@
 
       font-size: 14px;
       font-weight: 500;
+      text-align: center;
 
-      box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 
       transition:
         transform .25s ease,
@@ -224,21 +208,27 @@
 
     .link:hover {
       transform: translateY(-2px);
-
-      /* Destaque suave igual para todos ao passar o mouse */
       background: rgba(80, 20, 100, 0.75);
       border-color: rgba(255, 255, 255, 0.35);
     }
 
-    .icon {
+    /* Trava os ícones na esquerda sem empurrar o texto */
+    .icon-img, 
+    .icon-emoji {
       position: absolute;
-      left: 20px;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
 
-      width: 24px;
-
-      font-size: 18px;
-
-      opacity: .85;
+    .icon-emoji {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
 
@@ -248,13 +238,9 @@
 
     .phrase {
       margin-top: 28px;
-
       font-family: "Playfair Display", serif;
-
       font-size: 17px;
-
       color: rgba(255,255,255,.88);
-
       line-height: 1.4;
     }
 
@@ -266,26 +252,19 @@
     .social {
       display: flex;
       gap: 18px;
-
       margin-top: 24px;
     }
 
     .social a {
       width: 40px;
       height: 40px;
-
       border: 1px solid rgba(255,255,255,.35);
-
       border-radius: 50%;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       color: white;
-
       font-size: 15px;
-
       transition: .25s ease;
     }
 
@@ -301,17 +280,14 @@
 
     footer {
       margin-top: 30px;
-
       font-size: 10px;
-
       color: rgba(255,255,255,.48);
-
       letter-spacing: .5px;
     }
 
 
     /* =========================
-       MOBILE
+       MOBILE (TELAS PEQUENAS)
     ========================= */
 
     @media (max-width: 480px) {
@@ -343,17 +319,19 @@
         gap: 9px;
       }
 
+      /* No mobile: padding simétrico mantendo o texto perfeitamente centralizado */
       .link {
         min-height: 46px;
         font-size: 13px;
         border-radius: 12px;
-        padding: 0 15px 0 45px;
+        padding: 0 15px;
       }
 
-      .icon-img {
+      .icon-img,
+      .icon-emoji {
         left: 12px;
-        width: 26px;
-        height: 26px;
+        width: 24px;
+        height: 24px;
       }
 
       .phrase {
@@ -367,43 +345,6 @@
 
     }
 
-    .icon-img {
-      position: absolute;
-      left: 20px;
-      width: 38px;
-      height: 35px;
-      object-fit: contain;
-    }
-
-    .icon-emoji {
-      position: absolute;
-      left: 20px;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-    }
-
-    .btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centraliza o TEXTO perfeitamente no container */
-  width: 100%;
-  padding: 14px 16px;
-  text-align: center;
-}
-
-/* O ícone fica preso na ponta esquerda e "flutua", sem empurrar o texto */
-.btn img, .btn i, .btn svg {
-  position: absolute;
-  left: 16px; 
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
   </style>
 </head>
 
@@ -413,7 +354,6 @@
   <div class="page">
 
     <div class="background"></div>
-
 
     <main class="content">
 
@@ -435,7 +375,7 @@
       </section>
 
 
-      <!-- LINKS (TODOS PADRONIZADOS) -->
+      <!-- LINKS -->
       <nav class="links">
 
         <a class="link" href="https://wa.me/5511974167457" target="_blank">
