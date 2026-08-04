@@ -385,6 +385,25 @@
       width: 38px;
     }
 
+    .btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o TEXTO perfeitamente no container */
+  width: 100%;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+/* O ícone fica preso na ponta esquerda e "flutua", sem empurrar o texto */
+.btn img, .btn i, .btn svg {
+  position: absolute;
+  left: 16px; 
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
   </style>
 </head>
 
