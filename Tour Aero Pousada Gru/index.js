@@ -387,7 +387,7 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes[0]);
+  switchScene(scenes[1]);
 
   // Toca a música a 30% do volume assim que o usuário clicar na tela
 function iniciarMusica() {

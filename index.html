@@ -30,7 +30,7 @@
     body {
       font-family: "DM Sans", sans-serif;
       color: #fff;
-      background: #252622;
+      background: #10021a; /* Tom escuro roxo equivalente ao fundo */
     }
 
     /* =========================
@@ -64,22 +64,18 @@
       }
     }
 
+    /* ========================================================
+       IMAGEM DE FUNDO
+    ======================================================== */
     .background {
       position: fixed;
       inset: 0;
 
-      background-image:
-        linear-gradient(
-          rgba(20, 21, 18, .58),
-          rgba(20, 21, 18, .70)
-        ),
-        url("assets/background.jpeg");
+      background-image: url("assets/background.png");
 
       background-size: cover;
-      background-position: center;
-
-      filter: blur(2px);
-      transform: scale(1.04);
+      background-position: center top;
+      background-repeat: no-repeat;
 
       z-index: -2;
     }
@@ -89,7 +85,7 @@
       position: absolute;
       inset: 0;
 
-      background: rgba(35, 36, 31, .25);
+      background: rgba(16, 2, 26, 0.3);
     }
 
 
@@ -125,12 +121,13 @@
       width: 110px;           /* Tamanho da bolinha maior */
       height: 110px;
       border-radius: 50%;
-      background: #ffffff;
+      background: #000000;    /* FUNDO PRETO */
+      border: 2px solid rgba(255, 255, 255, 0.25); /* Borda brilhante */
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       overflow: hidden;        /* Garante o formato 100% redondo */
       position: relative;
     }
@@ -138,8 +135,8 @@
     .logo img {
       width: 100%;
       height: 100%;
-      object-fit: contain;     /* Mantém as proporções da imagem inteira lá dentro */
-      /* transform: scale(1.4); */   /* COMENTADO: Removido o zoom que causava o corte */
+      object-fit: contain;     /* Preserva a proporção da logo transparente */
+      transform: scale(1.1);   /* Margem interna suave */
     }
 
     .name {
@@ -163,7 +160,7 @@
 
 
     /* =========================
-       LINKS
+       LINKS (TODOS OS BOTÕES IDÊNTICOS)
     ========================= */
 
     .links {
@@ -184,9 +181,14 @@
 
       border-radius: 14px;
 
-      background: rgba(255,255,255,.93);
+      /* Fundo roxo translúcido padronizado */
+      background: rgba(59, 13, 78, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
 
-      color: #34352f;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+
+      color: #ffffff; /* Texto branco */
 
       display: flex;
       align-items: center;
@@ -198,17 +200,20 @@
       font-weight: 500;
 
       box-shadow:
-        0 8px 25px rgba(0,0,0,.12);
+        0 8px 25px rgba(0, 0, 0, 0.3);
 
       transition:
         transform .25s ease,
-        background .25s ease;
+        background .25s ease,
+        border-color .25s ease;
     }
 
     .link:hover {
       transform: translateY(-2px);
 
-      background: #fff;
+      /* Destaque suave igual para todos ao passar o mouse */
+      background: rgba(80, 20, 100, 0.75);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     .icon {
@@ -219,20 +224,7 @@
 
       font-size: 18px;
 
-      opacity: .75;
-    }
-
-
-    /* =========================
-       DESTAQUE WHATSAPP
-    ========================= */
-
-    .link.whatsapp {
-      background: #e8eee5;
-    }
-
-    .link.whatsapp:hover {
-      background: #f0f4ed;
+      opacity: .85;
     }
 
 
@@ -308,22 +300,16 @@
        MOBILE
     ========================= */
 
-/* =========================
-       MOBILE (AJUSTADO LARGURA E ALTURA)
-    ========================= */
-
     @media (max-width: 480px) {
 
       .page {
-        padding: 40px 20px 20px; /* Reduz o espaço no topo e embaixo */
+        padding: 40px 20px 20px;
       }
 
-      /* 1. LARGURA: Reduz o container principal para mostrar mais o fundo nas laterais */
       .content {
-        max-width: 320px; /* Antes estava ocupando quase 100% (460px) */
+        max-width: 320px;
       }
 
-      /* 2. LOGO E CABEÇALHO */
       .logo {
         width: 80px;
         height: 80px;
@@ -339,26 +325,23 @@
         margin-top: 4px;
       }
 
-      /* 3. ALTURA E ESPAÇAMENTO DOS BOTÕES */
       .links {
-        gap: 9px; /* Diminui a distância entre os botões (era 12px) */
+        gap: 9px;
       }
 
       .link {
-        min-height: 46px; /* Altura mais fina (era 58px) */
-        font-size: 13px;  /* Texto levemente ajustado para caber na nova largura */
+        min-height: 46px;
+        font-size: 13px;
         border-radius: 12px;
-        padding: 0 15px 0 45px; /* Abre espaço para o ícone sem apertar o texto */
+        padding: 0 15px 0 45px;
       }
 
-      /* 4. ÍCONES */
       .icon-img {
         left: 12px;
         width: 26px;
         height: 26px;
       }
 
-      /* 5. FRASE E RODAPÉ */
       .phrase {
         margin-top: 20px;
         font-size: 14px;
@@ -369,7 +352,7 @@
       }
 
     }
-    /* Estilo para as imagens dos ícones dentro dos botões */
+
     .icon-img {
       position: absolute;
       left: 20px;
@@ -378,7 +361,6 @@
       object-fit: contain;
     }
 
-    /* Estilo para ícones padrão quando não for usar imagem PNG */
     .icon-emoji {
       position: absolute;
       left: 20px;
@@ -402,13 +384,10 @@
 
     <main class="content">
 
-
       <!-- PERFIL -->
-
       <section class="profile">
 
         <div class="logo">
-            <!-- Certifique-se de que a imagem 'assets/logo.png' seja a imagem inteira que você me mandou -->
             <img src="assets/logo.png" alt="AERO Pousada GRU">
         </div>
 
@@ -423,15 +402,14 @@
       </section>
 
 
-      <!-- LINKS -->
+      <!-- LINKS (TODOS PADRONIZADOS) -->
       <nav class="links">
 
-        <a class="link whatsapp" href="https://wa.me/5511974167457" target="_blank">
+        <a class="link" href="https://wa.me/5511974167457" target="_blank">
           <img src="assets/whatsapp-circle.png" class="icon-img" alt="WhatsApp">
           Reservar pelo WhatsApp
         </a>
 
-        <!-- VISITAR O SITE -->
         <a class="link" href="https://aero-pousada-gru-2go77pr.gamma.site/" target="_blank">
           <img src="assets/site.png" class="icon-img" alt="Site">
           Nosso site
@@ -447,13 +425,11 @@
           Como chegar
         </a>
 
-        <!-- AVALIE NO GOOGLE -->
         <a class="link" href="https://g.page/r/Cbz9eph1N_VREBM/review" target="_blank">
           <img src="assets/like.png" class="icon-img" alt="Deixe sua avaliação">
           Deixe sua avaliação
         </a>
 
-        <!-- COMO DEVE FICAR: -->
         <a class="link" href="Tour Aero Pousada Gru/index.html">
           <img src="assets/fotografia.png" class="icon-img" alt="Acomodações">
           Conheça nossas acomodações
@@ -462,7 +438,6 @@
       </nav>
 
       <!-- FRASE -->
-
       <p class="phrase">
         Um lugar acolhedor para<br>
         você se sentir em casa.
@@ -471,7 +446,6 @@
       <footer>
         © 2026 AERO Pousada GRU
       </footer>
-
 
     </main>
 
